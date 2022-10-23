@@ -23,6 +23,8 @@ allure {
 }
 
     dependencies {
+        implementation 'org.jetbrains:annotations:20.1.0'
+        implementation 'org.jetbrains:annotations:20.1.0'
         testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
         testImplementation 'com.codeborne:selenide:6.8.1'
         testImplementation 'io.qameta.allure:allure-selenide:2.19.0'
