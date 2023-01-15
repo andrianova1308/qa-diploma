@@ -22,3 +22,14 @@ services:
     ports:
       - '5432:5432'
 
+  node:
+    image: node:8
+    user: node
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./gate-simulator:/home/node/app
+    ports:
+      - '9999:9999'
+    command: npm start

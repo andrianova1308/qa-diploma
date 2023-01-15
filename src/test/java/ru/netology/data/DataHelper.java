@@ -32,6 +32,14 @@ public class DataHelper {
         return "";
     }
 
+    public static String getCardNumber1Digit() {
+        return "8";
+    }
+
+    public static String getCardNumberChars() {
+        return "Восемь";
+    }
+
     public static String getWrongCardNumber() {
         return "8888 8888 8888 8888";
     }
@@ -44,7 +52,9 @@ public class DataHelper {
         String Mouth = LocalDate.now().format(DateTimeFormatter.ofPattern("MM"));
         return Mouth;
     }
-
+    public static String getEmptyMouth() {
+        return "";
+    }
     public static String getNullMouth() {
         return "00";
     }
