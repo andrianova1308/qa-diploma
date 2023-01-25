@@ -12,6 +12,7 @@ services:
     ports:
      - '3306:3306'
 
+
   postgres:
     image: postgres:13-alpine
     restart: always

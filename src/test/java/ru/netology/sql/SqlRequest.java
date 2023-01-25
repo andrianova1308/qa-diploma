@@ -16,9 +16,12 @@ public class SqlRequest {
 
     @SneakyThrows
     public static Connection getConnection() {
-        return DriverManager.getConnection(DB_URL, "app", "pass");
+    //    return DriverManager.getConnection(DB_URL, "app", "pass");
+        String url = "jdbc:mysql://localhost/app";
+        String username = "app";
+        String password = "pass";
+        return DriverManager.getConnection(url, username, password);
     }
-
     @SneakyThrows
     public static void clearDB() {
         QueryRunner runner = new QueryRunner();

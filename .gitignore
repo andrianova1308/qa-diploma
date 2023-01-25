@@ -1,6 +1,6 @@
 Thumbs.db*
 .DS_Store
-HELP.md
+
 .gradle
 build/
 
@@ -46,5 +46,6 @@ out/
 /.idea/
 /.allure/
 /build (2)/
+/gate-simulator/node_modules/.bin/
 .allure
 !artifacts/aqa-shop.jar
