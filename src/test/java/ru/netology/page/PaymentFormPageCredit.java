@@ -12,6 +12,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
+
+
     public class PaymentFormPageCredit {
 
         private SelenideElement cardNumberField = $("[placeholder='0000 0000 0000 0000']");
