@@ -1,7 +1,7 @@
 package ru.netology.test;
+
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import lombok.val;
 import org.junit.jupiter.api.*;
 import ru.netology.data.DataHelper;
 import ru.netology.page.MainPage;
@@ -41,15 +41,15 @@ public class TestCreditBuy {
     void shouldAllowPurchaseWithApprovedCard() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForSuccessedNotification();
-        val expected = DataHelper.getFirstCardStatus();
-        val actual = SqlRequest.getCreditPaymentStatus();
+        var expected = DataHelper.getFirstCardStatus();
+        var actual = SqlRequest.getCreditPaymentStatus();
         assertEquals(expected, actual);
     }
 
@@ -57,11 +57,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithEmptyFields() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getEmptyCardNumber();
-        val month = DataHelper.getEmptyMouth();
-        val year = DataHelper.getEmptyYear();
-        val cardOwner = DataHelper.getEmptyOwner();
-        val code = DataHelper.getEmptyCode();
+        var cardNumber = DataHelper.getEmptyCardNumber();
+        var month = DataHelper.getEmptyMouth();
+        var year = DataHelper.getEmptyYear();
+        var cardOwner = DataHelper.getEmptyOwner();
+        var code = DataHelper.getEmptyCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForMandatoryFieldMessage();
     }
@@ -70,11 +70,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithEmptyFieldCardNumber() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getEmptyCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getEmptyCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForMandatoryFieldMessage();
     }
@@ -83,15 +83,15 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithDeclinedCard() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getSecondCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getSecondCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForFailedNotification();
-        val expected = DataHelper.getSecondCardStatus();
-        val actual = SqlRequest.getCreditPaymentStatus();
+        var expected = DataHelper.getSecondCardStatus();
+        var actual = SqlRequest.getCreditPaymentStatus();
         assertEquals(expected, actual);
     }
 
@@ -99,11 +99,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithAnotherCard() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getWrongCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getWrongCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForFailedNotification();
     }
@@ -112,11 +112,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseCardNumberWith15Digits() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getShortCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getShortCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
@@ -125,11 +125,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseCardNumberWith1Digit() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getCardNumber1Digit();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getCardNumber1Digit();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
@@ -138,11 +138,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseCardNumberWithTextAndChars() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getCardNumberChars();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getCardNumberChars();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForInvalidCharactersMessage();
     }
@@ -151,11 +151,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithEmptyFieldMonth() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getEmptyMouth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getEmptyMouth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForMandatoryFieldMessage();
     }
@@ -164,11 +164,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithMonthOver12() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getMonthOver12();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getMonthOver12();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongCardExpirationMessage();
     }
@@ -177,11 +177,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithZeroMonth() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getNullMouth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getNullMouth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongCardExpirationMessage();
     }
@@ -190,11 +190,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithWrongFormatMonth() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getInvalidFormatMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getInvalidFormatMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
@@ -203,11 +203,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithTextInMonthField() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getMonthWithText();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getMonthWithText();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForInvalidCharactersMessage();
     }
@@ -216,11 +216,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithEmptyYearField() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getEmptyYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getEmptyYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForMandatoryFieldMessage();
     }
@@ -229,11 +229,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithPastYear() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getPastYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getPastYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForCardExpiredMessage();
     }
@@ -242,11 +242,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithWrongFormatYear() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getInvalidFormatYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getInvalidFormatYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
@@ -255,11 +255,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithTooFutureYear() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getFutureYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getFutureYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongCardExpirationMessage();
     }
@@ -268,11 +268,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithTextInYearField() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getYearWithText();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getYearWithText();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForInvalidCharactersMessage();
     }
@@ -281,11 +281,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithEmptyCardOwnerField() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getEmptyOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getEmptyOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForMandatoryFieldMessage();
     }
@@ -294,11 +294,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithoutSecondName() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getOnlyNameOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getOnlyNameOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
@@ -307,11 +307,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithLowercaseCardOwner() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getLowercaseLettersOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getLowercaseLettersOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
@@ -320,11 +320,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithUppercaseCardOwner() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getUppercaseLettersOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getUppercaseLettersOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
@@ -333,11 +333,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithRedundantDataCardOwner() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getRedundantDataOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getRedundantDataOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
@@ -346,11 +346,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithCyrillicDataCardOwner() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getCyrillicDataOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getCyrillicDataOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
@@ -359,11 +359,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithTwoLanguagesCardOwner() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getTwoAlphabetsDataOwner();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getTwoAlphabetsDataOwner();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForInvalidCharactersMessage();
     }
@@ -372,11 +372,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithDigitsCardOwner() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getOwnerWithDigits();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getOwnerWithDigits();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForInvalidCharactersMessage();
     }
@@ -385,11 +385,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithSpecialCharsCardOwner() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getOwnerWithSpecialChars();
-        val code = DataHelper.getValidCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getOwnerWithSpecialChars();
+        var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForInvalidCharactersMessage();
     }
@@ -398,11 +398,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithEmptyCodeField() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getEmptyCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getEmptyCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForMandatoryFieldMessage();
     }
@@ -411,11 +411,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithWrongFormatCode() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getInvalidFormatCode();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getInvalidFormatCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
@@ -424,11 +424,11 @@ public class TestCreditBuy {
     void shouldDenyPurchaseWithTextInCodeField() {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
-        val cardNumber = DataHelper.getFirstCardNumber();
-        val month = DataHelper.getCorrectMonth();
-        val year = DataHelper.getValidYear();
-        val cardOwner = DataHelper.getValidOwner();
-        val code = DataHelper.getCodeWithText();
+        var cardNumber = DataHelper.getFirstCardNumber();
+        var month = DataHelper.getCorrectMonth();
+        var year = DataHelper.getValidYear();
+        var cardOwner = DataHelper.getValidOwner();
+        var code = DataHelper.getCodeWithText();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForInvalidCharactersMessage();
     }

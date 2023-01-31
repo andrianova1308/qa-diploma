@@ -49,8 +49,8 @@ public class DataHelper {
     }
 
     public static String getCorrectMonth () {
-        String Mouth = LocalDate.now().format(DateTimeFormatter.ofPattern("MM"));
-        return Mouth;
+        String month = LocalDate.now().format(DateTimeFormatter.ofPattern("MM"));
+        return month;
     }
     public static String getEmptyMouth() {
         return "";
