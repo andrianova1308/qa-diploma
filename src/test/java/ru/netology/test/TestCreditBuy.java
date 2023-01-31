@@ -27,7 +27,8 @@ public class TestCreditBuy {
 
     @BeforeEach
     public void setUp() {
-        mainPage = open("http://localhost:8080/", MainPage.class);
+        String url = System.getProperty("sut.url");
+        mainPage = open(url, MainPage.class);
     }
 
     @AfterEach
