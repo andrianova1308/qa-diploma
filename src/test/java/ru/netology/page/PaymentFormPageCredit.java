@@ -44,7 +44,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
         public PaymentFormPageCredit clear() {
             clearFields();
-            return new PaymentFormPageCredit();
+            return this;
         }
 
         public void clearFields() {
