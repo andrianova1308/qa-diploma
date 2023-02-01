@@ -191,7 +191,7 @@ public class TestDebitBuy {
         paymentFormPageDebit = mainPage.payWithDebitCard()
                 .clear();
         var cardNumber = DataHelper.getFirstCardNumber();
-        var month = DataHelper.getRandomDtring(3);
+        var month = DataHelper.getRandomNumber(3);
         var year = DataHelper.getValidYear();
         var cardOwner = DataHelper.getValidOwner();
         var code = DataHelper.getValidCode();
