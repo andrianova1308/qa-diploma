@@ -37,9 +37,9 @@ public class SqlRequest {
     @SneakyThrows
     public static String getDebitPaymentStatus() {
         QueryRunner runner = new QueryRunner();
-        String SqlStatus = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
+        String sqlStatus = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
         var connection = getConnection();
-            String result = runner.query(connection, SqlStatus, new ScalarHandler<>());
+            String result = runner.query(connection, sqlStatus, new ScalarHandler<>());
             return result;
 
     }
@@ -47,9 +47,9 @@ public class SqlRequest {
     @SneakyThrows
     public static String getCreditPaymentStatus() {
         QueryRunner runner = new QueryRunner();
-        String SqlStatus = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
+        String sqlStatus = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
         var connection = getConnection();
-            String result = runner.query(connection, SqlStatus, new ScalarHandler<>());
+            String result = runner.query(connection, sqlStatus, new ScalarHandler<>());
             return result;
 
     }
