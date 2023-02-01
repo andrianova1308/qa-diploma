@@ -155,4 +155,10 @@ public class DataHelper {
     public static String getCodeWithText() {
         return "код";
     }
+    public static String getRandomNumber(int length) {
+        return fakerEn.number().digits(length);
+    }
+     public static String getEmptyString() {
+        return "";
+    
 }
