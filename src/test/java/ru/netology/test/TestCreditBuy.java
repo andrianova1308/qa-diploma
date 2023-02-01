@@ -39,8 +39,9 @@ public class TestCreditBuy {
 
     @Test
     void shouldAllowPurchaseWithApprovedCard() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+    //    paymentFormPageCredit = mainPage.payWithCreditCard()
+    //            .clear();
+        paymentFormPageCredit.clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
