@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 
 public class SqlRequest {
 
-    private static final String url = System.getProperty("db.url");
+    private static final String DB_URL = System.getProperty("db.url");
     private static final String user = System.getProperty("db.username");
     private static final String pass = System.getProperty("db.password");
 
@@ -18,7 +18,7 @@ public class SqlRequest {
 
     @SneakyThrows
     public static Connection getConnection() {
-       return DriverManager.getConnection(url, user, pass);
+       return DriverManager.getConnection(DB_URL, user, pass);
        // String url = "jdbc:mysql://localhost/app";
       //  String username = "app";
       //  String password = "pass";
