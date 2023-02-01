@@ -58,10 +58,10 @@ public class TestCreditBuy {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
         var cardNumber = DataHelper.getEmptyCardNumber();
-        var month = DataHelper.getEmptyMouth();
-        var year = DataHelper.getEmptyYear();
-        var cardOwner = DataHelper.getEmptyOwner();
-        var code = DataHelper.getEmptyCode();
+        var month = DataHelper.getEmptyString();
+        var year = DataHelper.getEmptyString();
+        var cardOwner = DataHelper.getEmptyString();
+        var code = DataHelper.getEmptyString();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForMandatoryFieldMessage();
     }
@@ -152,7 +152,7 @@ public class TestCreditBuy {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
         var cardNumber = DataHelper.getFirstCardNumber();
-        var month = DataHelper.getEmptyMouth();
+        var month = DataHelper.getEmptyString();
         var year = DataHelper.getValidYear();
         var cardOwner = DataHelper.getValidOwner();
         var code = DataHelper.getValidCode();
@@ -191,7 +191,7 @@ public class TestCreditBuy {
         paymentFormPageCredit = mainPage.payWithCreditCard()
                 .clear();
         var cardNumber = DataHelper.getFirstCardNumber();
-        var month = DataHelper.getInvalidFormatMonth();
+        var month = DataHelper.getRandomNumber(3);
         var year = DataHelper.getValidYear();
         var cardOwner = DataHelper.getValidOwner();
         var code = DataHelper.getValidCode();
@@ -218,7 +218,7 @@ public class TestCreditBuy {
                 .clear();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
-        var year = DataHelper.getEmptyYear();
+        var year = DataHelper.getEmptyString();
         var cardOwner = DataHelper.getValidOwner();
         var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
@@ -244,7 +244,7 @@ public class TestCreditBuy {
                 .clear();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
-        var year = DataHelper.getInvalidFormatYear();
+        var year = DataHelper.getRandomNumber(3);
         var cardOwner = DataHelper.getValidOwner();
         var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
@@ -284,7 +284,7 @@ public class TestCreditBuy {
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
-        var cardOwner = DataHelper.getEmptyOwner();
+        var cardOwner = DataHelper.getEmptyString();
         var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForMandatoryFieldMessage();
@@ -375,7 +375,7 @@ public class TestCreditBuy {
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
-        var cardOwner = DataHelper.getOwnerWithDigits();
+        var cardOwner = DataHelper.getRandomNumber(5);
         var code = DataHelper.getValidCode();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForInvalidCharactersMessage();
@@ -402,7 +402,7 @@ public class TestCreditBuy {
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
         var cardOwner = DataHelper.getValidOwner();
-        var code = DataHelper.getEmptyCode();
+        var code = DataHelper.getEmptyString();
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForMandatoryFieldMessage();
     }
@@ -415,7 +415,7 @@ public class TestCreditBuy {
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
         var cardOwner = DataHelper.getValidOwner();
-        var code = DataHelper.getInvalidFormatCode();
+        var code = DataHelper.getRandomNumber(2);
         paymentFormPageCredit.fillForm(cardNumber, month, year, cardOwner, code);
         paymentFormPageCredit.waitForWrongFormatMessage();
     }
