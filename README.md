@@ -44,17 +44,17 @@ Git, JDK 11, IntelliJ IDEA, Docker, Docker Compose.
 
 * С подключением к MySQL:
 
-  `./gradlew clean test -Ddb.url=jdbc:mysql://localhost:3306/app`
+  `./gradlew clean test -Durl=jdbc:mysql://localhost:3306/app`
 
 * С подключением к PostgreSQL:
 
-  `./gradlew clean test -Ddb.url=jdbc:postgresql://localhost:5432/app`
+  `./gradlew clean test -Durl=jdbc:postgresql://localhost:5432/app`
 
 #### Отдельный тестовый класс
 
 Запустить необходимый тестовый класс отдельно можно командой в консоли, указав его имя, например:
 
-`./gradlew clean test --tests BuyTourCreditPageTest` ...
+`./gradlew clean test --tests shouldAllowPurchaseWithApprovedCard` ...
 
 Либо запустить его с помощью кнопки «Run» в IDEA.
 
