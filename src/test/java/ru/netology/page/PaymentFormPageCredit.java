@@ -42,10 +42,7 @@ import static com.codeborne.selenide.Selenide.$$;
             continueButton.click();
         }
 
-      //  public PaymentFormPageCredit clear() {
-      //      clearFields();
-      //      return this;
-      //  }
+
 
         public PaymentFormPageCredit clearFields() {
             cardNumberField.doubleClick().sendKeys(Keys.BACK_SPACE);

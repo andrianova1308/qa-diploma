@@ -28,10 +28,6 @@ public class DataHelper {
         return "DECLINED";
     }
 
-    public static String getEmptyCardNumber() {
-        return "";
-    }
-
     public static String getCardNumber1Digit() {
         return "8";
     }
@@ -52,9 +48,7 @@ public class DataHelper {
         String month = LocalDate.now().format(DateTimeFormatter.ofPattern("MM"));
         return month;
     }
-    public static String getEmptyMouth() {
-        return "";
-    }
+
     public static String getNullMouth() {
         return "00";
     }
@@ -63,9 +57,6 @@ public class DataHelper {
     public static String getMonthOver12() {return "13"; }
 
 
-    public static String getInvalidFormatMonth() {
-        return fakerEn.number().digit();
-    }
 
     public static String getMonthWithText() {
         return "октябрь";
@@ -76,9 +67,6 @@ public class DataHelper {
         return validYear;
     }
 
-    public static String getEmptyYear() {
-        return "";
-    }
 
     public static String getPastYear() {
         String pastYear = LocalDate.now().minusYears(1).format(DateTimeFormatter
@@ -86,9 +74,6 @@ public class DataHelper {
         return pastYear;
     }
 
-    public static String getInvalidFormatYear() {
-        return fakerEn.number().digit();
-    }
 
     public static String getFutureYear() {
         String futureYear = LocalDate.now().plusYears(10).format(DateTimeFormatter.ofPattern("yy"));
@@ -103,9 +88,6 @@ public class DataHelper {
         return fakerEn.name().firstName() + " " + fakerEn.name().lastName();
     }
 
-    public static String getEmptyOwner() {
-        return "";
-    }
 
     public static String getOnlyNameOwner() {
         return fakerEn.name().firstName();
@@ -132,25 +114,14 @@ public class DataHelper {
         return fakerRu.name().firstName() + " " + fakerEn.name().lastName();
     }
 
-    public static String getOwnerWithDigits() {
-        return fakerEn.number().digits(5);
-    }
-
     public static String getOwnerWithSpecialChars() {
         return "!№%?*";
     }
 
-    public static String getValidCode() {
-        return fakerEn.number().digits(3);
-    }
+   public static String getValidCode() {
+      return fakerEn.number().digits(3);
+   }
 
-    public static String getEmptyCode() {
-        return "";
-    }
-
-    public static String getInvalidFormatCode() {
-        return fakerEn.number().digits(2);
-    }
 
     public static String getCodeWithText() {
         return "код";
