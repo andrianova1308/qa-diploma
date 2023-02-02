@@ -39,17 +39,16 @@ import static com.codeborne.selenide.Selenide.$$;
             continueButton.click();
         }
 
-        public PaymentFormPageDebit clear() {
-            clearFields();
-            return new PaymentFormPageDebit();
-        }
+   
+       
 
-        public void clearFields() {
+        public PaymentFormPageDebit clearFields() {
             cardNumberField.doubleClick().sendKeys(Keys.BACK_SPACE);
             monthField.doubleClick().sendKeys(Keys.BACK_SPACE);
             yearField.doubleClick().sendKeys(Keys.BACK_SPACE);
             cardOwnerField.doubleClick().sendKeys(Keys.BACK_SPACE);
             codeField.doubleClick().sendKeys(Keys.BACK_SPACE);
+            return this;
         }
 
         public void waitForFailedNotification() {
