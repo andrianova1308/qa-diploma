@@ -42,17 +42,15 @@ import static com.codeborne.selenide.Selenide.$$;
             continueButton.click();
         }
 
-        public PaymentFormPageCredit clear() {
-            clearFields();
-            return this;
-        }
 
-        public void clearFields() {
+
+        public PaymentFormPageCredit clearFields() {
             cardNumberField.doubleClick().sendKeys(Keys.BACK_SPACE);
             monthField.doubleClick().sendKeys(Keys.BACK_SPACE);
             yearField.doubleClick().sendKeys(Keys.BACK_SPACE);
             cardOwnerField.doubleClick().sendKeys(Keys.BACK_SPACE);
             codeField.doubleClick().sendKeys(Keys.BACK_SPACE);
+            return this;
         }
 
         public void waitForFailedNotification() {

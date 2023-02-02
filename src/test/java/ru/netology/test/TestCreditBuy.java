@@ -39,9 +39,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldAllowPurchaseWithApprovedCard() {
-    //    paymentFormPageCredit = mainPage.payWithCreditCard()
-    //            .clear();
-        paymentFormPageCredit.clearFields();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -56,9 +54,8 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithEmptyFields() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
-        var cardNumber = DataHelper.getEmptyCardNumber();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
+        var cardNumber = DataHelper.getEmptyString();
         var month = DataHelper.getEmptyString();
         var year = DataHelper.getEmptyString();
         var cardOwner = DataHelper.getEmptyString();
@@ -69,9 +66,8 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithEmptyFieldCardNumber() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
-        var cardNumber = DataHelper.getEmptyCardNumber();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
+        var cardNumber = DataHelper.getEmptyString();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
         var cardOwner = DataHelper.getValidOwner();
@@ -82,8 +78,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithDeclinedCard() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getSecondCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -98,8 +93,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithAnotherCard() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getWrongCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -111,8 +105,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseCardNumberWith15Digits() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getShortCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -124,8 +117,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseCardNumberWith1Digit() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getCardNumber1Digit();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -137,8 +129,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseCardNumberWithTextAndChars() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getCardNumberChars();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -150,8 +141,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithEmptyFieldMonth() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getEmptyString();
         var year = DataHelper.getValidYear();
@@ -163,8 +153,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithMonthOver12() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getMonthOver12();
         var year = DataHelper.getValidYear();
@@ -176,8 +165,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithZeroMonth() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getNullMouth();
         var year = DataHelper.getValidYear();
@@ -189,8 +177,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithWrongFormatMonth() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getRandomNumber(3);
         var year = DataHelper.getValidYear();
@@ -202,8 +189,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithTextInMonthField() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getMonthWithText();
         var year = DataHelper.getValidYear();
@@ -215,8 +201,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithEmptyYearField() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getEmptyString();
@@ -228,8 +213,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithPastYear() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getPastYear();
@@ -241,8 +225,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithWrongFormatYear() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getRandomNumber(3);
@@ -254,8 +237,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithTooFutureYear() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getFutureYear();
@@ -267,8 +249,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithTextInYearField() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getYearWithText();
@@ -280,8 +261,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithEmptyCardOwnerField() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -293,8 +273,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithoutSecondName() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -306,8 +285,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithLowercaseCardOwner() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -319,8 +297,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithUppercaseCardOwner() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -332,8 +309,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithRedundantDataCardOwner() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -345,8 +321,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithCyrillicDataCardOwner() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -358,8 +333,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithTwoLanguagesCardOwner() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -371,8 +345,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithDigitsCardOwner() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -384,8 +357,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithSpecialCharsCardOwner() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -397,8 +369,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithEmptyCodeField() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -410,8 +381,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithWrongFormatCode() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
@@ -423,8 +393,7 @@ public class TestCreditBuy {
 
     @Test
     void shouldDenyPurchaseWithTextInCodeField() {
-        paymentFormPageCredit = mainPage.payWithCreditCard()
-                .clear();
+        paymentFormPageCredit = mainPage.payWithCreditCard().clearFields();
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getCorrectMonth();
         var year = DataHelper.getValidYear();
