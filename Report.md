@@ -25,15 +25,15 @@
 ---
 
 ### *При подключении к БД PostgreSQL*
-![Allure Report PostgreSQL]()
+![Allure Report PostgreSQL](https://github.com/andrianova1308/qa-diploma/blob/main/screen/postgresql.PNG)
 
 - Успешных кейсов 60% (46 кейсов)
 - Неуспешных кейсов 40% (24 кейсов)
 
-![Allure Report PostgreSQL 1]()
-![Allure Report PostgreSQL 2]()
-![Allure Report PostgreSQL 3]()
-![Allure Report PostgreSQL 4]()
+![Allure Report PostgreSQL 1](https://github.com/andrianova1308/qa-diploma/blob/main/screen/3th1.PNG)
+![Allure Report PostgreSQL 2](https://github.com/andrianova1308/qa-diploma/blob/main/screen/3th2.PNG)
+![Allure Report PostgreSQL 3](https://github.com/andrianova1308/qa-diploma/blob/main/screen/4th1.PNG)
+![Allure Report PostgreSQL 4](https://github.com/andrianova1308/qa-diploma/blob/main/screen/4th2.PNG)
 
 ---
 ## Общие рекомендации
