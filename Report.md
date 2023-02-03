@@ -12,33 +12,33 @@
 
 ### *При подключении к БД MySQL*
 
-![Allure Report SQL 1](../main/screen/sql.png)
+![Allure Report SQL 1](https://github.com/andrianova1308/qa-diploma/blob/main/screen/img.png)
 
-- Успешных кейсов 55% (38 кейсов)
-- Неуспешных кейсов 45% (30 кейсов)
+- Успешных кейсов 60% (46 кейсов)
+- Неуспешных кейсов 40% (24 кейсов)
 
-![Allure Report SQL 2](../main/screen/first1.png)
-![Allure Report SQL 3](../main/screen/first2.png)
-![Allure Report SQL 4](../main/screen/second1.png)
-![Allure Report SQL 5](../main/screen/second2.png)
+![Allure Report SQL 2](https://github.com/andrianova1308/qa-diploma/blob/main/screen/first1.PNG)
+![Allure Report SQL 3](https://github.com/andrianova1308/qa-diploma/blob/main/screen/first2.PNG)
+![Allure Report SQL 4](https://github.com/andrianova1308/qa-diploma/blob/main/screen/second1.PNG)
+![Allure Report SQL 5](https://github.com/andrianova1308/qa-diploma/blob/main/screen/second1.PNG)
 
 ---
 
 ### *При подключении к БД PostgreSQL*
-![Allure Report PostgreSQL](https://raw.githubusercontent.com/Romankurinov/Graduate-work/main/.github/images/img_5.png)
+![Allure Report PostgreSQL]()
 
-- Успешных кейсов 53% (36 кейсов)
-- Неуспешных кейсов 47% (32 кейсов)
+- Успешных кейсов 60% (46 кейсов)
+- Неуспешных кейсов 40% (24 кейсов)
 
-![Allure Report PostgreSQL 1](https://raw.githubusercontent.com/Romankurinov/Graduate-work/main/.github/images/img_6.png)
-![Allure Report PostgreSQL 2](https://raw.githubusercontent.com/Romankurinov/Graduate-work/main/.github/images/img_8.png)
-![Allure Report PostgreSQL 3](https://raw.githubusercontent.com/Romankurinov/Graduate-work/main/.github/images/img_9.png)
-![Allure Report PostgreSQL 4](https://raw.githubusercontent.com/Romankurinov/Graduate-work/main/.github/images/img_10.png)
+![Allure Report PostgreSQL 1]()
+![Allure Report PostgreSQL 2]()
+![Allure Report PostgreSQL 3]()
+![Allure Report PostgreSQL 4]()
 
 ---
 ## Общие рекомендации
 
-1. Исправить все найденные баги, полный список которых расположен в [Issues](https://github.com/Romankurinov/Graduate-work/issues)
+1. Исправить все найденные баги, полный список которых расположен в [Issues](https://github.com/andrianova1308/qa-diploma/issues)
 
 4. Заменить ошибку "Неверный формат" при вводе недостаточного количества цифр в поле "Номер карты" на "Указано недостаточно цифр"/"Укажите точно как на карте"
 
